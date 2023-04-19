@@ -9,5 +9,4 @@ public class UctTokTikApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UctTokTikApplication.class, args);
 	}
-
 }
