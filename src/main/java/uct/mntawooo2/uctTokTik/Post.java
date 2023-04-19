@@ -1,6 +1,5 @@
 package uct.mntawooo2.uctTokTik;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 import org.bson.types.ObjectId;
@@ -15,16 +14,14 @@ public class Post {
     public String title;
     public String description;
     public String video;
-    public ArrayList<Comment> comments;
     public Integer likes;
 
-    public Post(Integer accountId, String title, String description, String video, ArrayList<Comment> comments,
+    public Post(Integer accountId, String title, String description, String video,
             Integer likes) {
         this.accountId = accountId;
         this.title = title;
         this.description = description;
         this.video = video;
-        this.comments = comments;
         this.likes = likes;
     }
 
@@ -63,14 +60,6 @@ public class Post {
         this.video = video;
     }
 
-    public ArrayList<Comment> getComments() {
-        return this.comments;
-    }
-
-    public void setComments(ArrayList<Comment> comments) {
-        this.comments = comments;
-    }
-
     public Integer getLikes() {
         return this.likes;
     }
@@ -81,12 +70,10 @@ public class Post {
 
     @Override
     public String toString() {
-        return "{" +
-                " accountId='" + getAccountId() + "'" +
+        return "{ accountId='" + getAccountId() + "'" +
                 ", title='" + getTitle() + "'" +
                 ", description='" + getDescription() + "'" +
                 ", video='" + getVideo() + "'" +
-                ", comments='" + getComments() + "'" +
                 ", likes='" + getLikes() + "'" +
                 "}";
     }
@@ -99,14 +86,14 @@ public class Post {
             return false;
         }
         Post post = (Post) o;
-        return Objects.equals(accountId, post.accountId) && Objects.equals(title, post.title)
-                && Objects.equals(description, post.description) && Objects.equals(video, post.video)
-                && Objects.equals(comments, post.comments) && Objects.equals(likes, post.likes);
+        return Objects.equals(id, post.id) && Objects.equals(accountId, post.accountId)
+                && Objects.equals(title, post.title) && Objects.equals(description, post.description)
+                && Objects.equals(video, post.video) && Objects.equals(likes, post.likes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountId, title, description, video, comments, likes);
+        return Objects.hash(id, accountId, title, description, video, likes);
     }
 
 }
