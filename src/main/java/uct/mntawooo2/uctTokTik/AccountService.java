@@ -19,6 +19,15 @@ public class AccountService {
         for (Account account : accountRepository.getAccounts()) {
             accountTreeNode.insertAccount(account);
         }
-        return accountTreeNode.showAllAccounts();
+        // return accountTreeNode.showAllAccounts();
+        return accountRepository.getAccounts();
+    }
+
+    public Account addAccount(Account account) {
+        return accountRepository.addAccount(account);
+    }
+
+    public String deleteAccount(Integer accountId) {
+        return accountRepository.deleteAccount(accountId);
     }
 }

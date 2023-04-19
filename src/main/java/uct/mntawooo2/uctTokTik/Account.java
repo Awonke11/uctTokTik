@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 public class Account {
     @Id
     private ObjectId id;
-    private Integer AccountId;
+    private Integer accountId;
     private String name;
     private String email;
     private String password;
@@ -17,9 +17,9 @@ public class Account {
     private Integer followers;
     private ArrayList<Post> posts;
 
-    public Account(Integer AccountId, String name, String email, String password, String description, Integer followers,
+    public Account(Integer accountId, String name, String email, String password, String description, Integer followers,
             ArrayList<Post> posts) {
-        this.AccountId = AccountId;
+        this.accountId = accountId;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -32,11 +32,11 @@ public class Account {
     }
 
     public Integer getAccountId() {
-        return this.AccountId;
+        return this.accountId;
     }
 
     public void setAccountId(Integer AccountId) {
-        this.AccountId = AccountId;
+        this.accountId = AccountId;
     }
 
     public String getName() {
@@ -107,7 +107,7 @@ public class Account {
             return false;
         }
         Account account = (Account) o;
-        return Objects.equals(id, account.id) && Objects.equals(AccountId, account.AccountId)
+        return Objects.equals(id, account.id) && Objects.equals(accountId, account.accountId)
                 && Objects.equals(name, account.name) && Objects.equals(email, account.email)
                 && Objects.equals(password, account.password) && Objects.equals(description, account.description)
                 && Objects.equals(followers, account.followers) && Objects.equals(posts, account.posts);
@@ -115,7 +115,7 @@ public class Account {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, AccountId, name, email, password, description, followers, posts);
+        return Objects.hash(id, accountId, name, email, password, description, followers, posts);
     }
 
 }
