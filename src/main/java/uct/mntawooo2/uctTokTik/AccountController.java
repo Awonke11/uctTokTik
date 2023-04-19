@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +33,17 @@ public class AccountController {
     public ResponseEntity<String> deleteAccount(@RequestBody String id) {
         Integer accountId = Integer.parseInt(id);
         return new ResponseEntity<>(accountService.deleteAccount(accountId), HttpStatus.ACCEPTED);
+    }
+
+    @PutMapping("/follow")
+    public ResponseEntity<String> addFollow(@RequestBody String id) {
+        Integer accountId = Integer.parseInt(id);
+        return new ResponseEntity<>(accountService.addFollower(accountId), HttpStatus.OK);
+    }
+
+    @PutMapping("/unfollow")
+    public ResponseEntity<String> removeFollow(@RequestBody String id) {
+        Integer accountId = Integer.parseInt(id);
+        return new ResponseEntity<>(accountService.removeFollower(accountId), HttpStatus.OK);
     }
 }

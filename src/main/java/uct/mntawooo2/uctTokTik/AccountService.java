@@ -30,4 +30,12 @@ public class AccountService {
     public String deleteAccount(Integer accountId) {
         return accountRepository.deleteAccount(accountId);
     }
+
+    public String addFollower(Integer accountId) {
+        return accountRepository.followAccount(accountId);
+    }
+
+    public String removeFollower(Integer accountId) {
+        return accountRepository.unFollowAccount(accountId);
+    }
 }
